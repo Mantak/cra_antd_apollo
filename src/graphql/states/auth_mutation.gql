@@ -1,0 +1,3 @@
+mutation updateAuth($index: String!, $value: String!) {
+  updateAuth(index: $index, value: $value) @client
+}

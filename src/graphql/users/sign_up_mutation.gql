@@ -1,0 +1,13 @@
+mutation signUp($email: String, $password: String, $passwordConfirmation: String) {
+  signUp(email: $email, password: $password, password_confirmation: $passwordConfirmation) {
+    currentUser: result {
+      id
+      email
+      token
+    }
+    messages {
+      field
+      message
+    }
+  }
+}

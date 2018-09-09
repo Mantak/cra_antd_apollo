@@ -1,0 +1,6 @@
+#import "./user_fragment.gql"
+query getUser($id: ID!) {
+  user(id: $id) {
+    ...UserFragment
+  }
+}

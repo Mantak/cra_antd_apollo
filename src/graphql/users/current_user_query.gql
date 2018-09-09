@@ -1,0 +1,6 @@
+#import "./user_fragment.gql"
+query currentUser {
+  currentUser {
+    ...UserFragment
+  }
+}

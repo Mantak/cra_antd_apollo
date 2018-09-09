@@ -1,0 +1,42 @@
+@background-color: #F0F2F5;
+
+html, body, :global(#root) {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: @background-color;
+}
+ul {
+  margin: 0;
+}
+li {
+  // list-style: none;
+}
+
+.base-card {
+  padding: 16px;
+  position: relative;
+  margin-top: 10px;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  box-sizing: border-box;
+}
+
+:global {
+  .center-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    .ant-layout-header {
+      padding: 0;
+    }
+  }
+  .main-card {
+    .base-card;
+  }
+}

@@ -1,0 +1,10 @@
+# 这里的input的MessageInput对应的是服务器端的message_input，这里的叹号，表示必传内容
+# 这里的createMessageWhatEver貌似没什么用，不需要跟server端匹配
+mutation createMessageWhatEver($input: MessageInput!) {
+  # 这里的createMessage对应server端的create_message这一mutation
+  createMessage(input: $input) {
+    message: result {
+      id
+    }
+  }
+}

@@ -1,0 +1,6 @@
+#import "./message_fragment.gql"
+subscription freshMessage($userId: ID!) {
+  freshMessage(userId: $userId) {
+    ...MessageFragment
+  }
+}

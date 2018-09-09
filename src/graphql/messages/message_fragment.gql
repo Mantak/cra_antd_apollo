@@ -1,0 +1,11 @@
+fragment MessageFragment on Message {
+  id
+  content
+  readed
+  inserted_at
+  sender {
+    id
+    nick_name
+    avatar_url
+  }
+}

@@ -1,0 +1,12 @@
+#import "./message_fragment.gql"
+query userMessages($userId: ID!, $pageNumber: Int) {
+  userMessages(userId: $userId, pageNumber: $pageNumber) {
+    pageNumber
+    pageSize
+    totalEntries
+    totalPages
+    entries {
+      ...MessageFragment
+    }
+  }
+}
