@@ -1,4 +1,3 @@
-ui组件使用ant design, css样式书写使用styled-components
 
 ### 0
 create-react-app + apollo client + absinth socket
