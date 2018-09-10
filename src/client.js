@@ -17,24 +17,15 @@ const stateLink = withClientState({
   resolvers: { Mutation: stateMutations },
 });
 
-const links = [
-  dedupLink,
-  authLink,
-  errorsLink,
-  infosLink,
-  stateLink,
-  ApolloLink.split(
+export default new ApolloClient({
+  link: ApolloLink.split(
+    // split based on operation type
     ({ query }) => {
-      const { kind, operation } = getMainDefinition(query);
+      const { kind, operation }: any = getMainDefinition(query);
       return kind === 'OperationDefinition' && operation === 'subscription';
     },
-    socketLink,
-    httpLink
+    ApolloLink.from([authLink, errorsLink, infosLink, socketLink]),
+    ApolloLink.from([dedupLink, authLink, errorsLink, infosLink, stateLink, httpLink])
   ),
-];
-export default new ApolloClient({
-  link: ApolloLink.from(links),
-  ssrForceFetchDelay: 100,
-  connectToDevTools: true,
   cache,
 });

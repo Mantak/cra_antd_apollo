@@ -31,7 +31,7 @@ const withMessages = graphql(USER_MESSAGES_QUERY, {
           },
         });
       },
-      subscribeToNewMessage() {
+      subscribeToNewMessages() {
         return data.subscribeToMore({
           document: NEW_MESSAGE_SUBSCRIPTION,
           variables: {
@@ -54,8 +54,8 @@ const withMessages = graphql(USER_MESSAGES_QUERY, {
 
 @withMessages
 export default class NoticeIcon extends PureComponent {
-  componentWillMount() {
-    this.props.subscribeToNewMessage();
+  componentDidMount() {
+    this.props.subscribeToNewMessages();
   }
   render() {
     const {
